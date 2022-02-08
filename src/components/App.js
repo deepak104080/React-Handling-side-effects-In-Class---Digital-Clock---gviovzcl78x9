@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/App.css";
 
 const App = () => {
-  let tempTime = new Date().toLocaleString();
-  const [dateTime, setDateTime] = useState(tempTime);
+  const [dateTime, setDateTime] = useState("");
 
   const updateTime = () => {
     let tempTime = new Date().toLocaleString();
@@ -11,6 +10,8 @@ const App = () => {
   };
 
   useEffect(() => {
+    let tempTime = new Date().toLocaleString();
+    setDateTime(tempTime);
     let ret = setInterval(updateTime, 1000);
     return () => {
       clearInterval(ret);
